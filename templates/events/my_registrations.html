@@ -1,0 +1,13 @@
+{% extends 'events/base.html' %}
+{% block content %}
+<h1>My Registrations</h1>
+{% for reg in registrations %}
+<div class="card">
+  <h3>{{ reg.event.title }}</h3>
+  <p>{{ reg.name }} ({{ reg.email }})</p>
+  <a class="btn danger" href="/registrations/{{ reg.id }}/cancel/">Cancel</a>
+</div>
+{% empty %}
+<p>No registrations found.</p>
+{% endfor %}
+{% endblock %}

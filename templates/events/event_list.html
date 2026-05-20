@@ -1,0 +1,16 @@
+{% extends 'events/base.html' %}
+{% block content %}
+<h1>Upcoming Events</h1>
+<div class="grid">
+{% for event in events %}
+<div class="card">
+  <h2>{{ event.title }}</h2>
+  <p>{{ event.date }} • {{ event.location }}</p>
+  <p>{{ event.description|truncatechars:100 }}</p>
+  <a class="btn" href="/event/{{ event.id }}/">View Details</a>
+</div>
+{% empty %}
+<p>No events yet. Add events from Admin.</p>
+{% endfor %}
+</div>
+{% endblock %}
